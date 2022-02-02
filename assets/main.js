@@ -22,18 +22,18 @@ let renderShow = show => {
             ...show,
             image: show.image?.original ?? show.image.medium,
             rating: show.rating.average,
-            seasons: show._embedded.seasons.map(season => ({ ...season, image: season.image?.medium, episodes: season.episodeOrder }))
+            /* seasons: show._embedded.seasons.map(season => ({ ...season, image: season.image?.medium, episodes: season.episodeOrder })) */
         }
     )
 }
 
-document.forms['show-form'].addEventListener('submit', event => {
+ document.forms['show-form'].addEventListener('submit', event => {
     event.preventDefault()
 
-    let season = document.getElementById('seasons-container')
+ /*    let season = document.getElementById('seasons-container')
     if (season) {
         season.innerHTML = ''
-    }
+    }   */
 
     getShow(document.forms['show-form'].elements.query.value)
         .then(data => {
